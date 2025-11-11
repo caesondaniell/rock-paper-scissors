@@ -60,6 +60,14 @@ function playGame() {
     for (let i = 1; i <= 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
     }
+
+    if (humanScore > computerScore) {
+        console.log("You win the game! Congratulations!");
+    } else if (humanScore < computerScore) {
+        console.log("You lose the game. Better luck next time!");
+    } else {
+        console.log("It's a tie game!");
+    }
 }
 
 playGame();
