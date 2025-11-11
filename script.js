@@ -30,33 +30,36 @@ function getHumanChoice() {
     }
 }
 
-// getHumanChoice();
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    function playRound(humanChoice, computerChoice) {
+        if (!humanChoice) {
+            console.log("Computer wins by default.");
+            computerScore++;
+        } else if (humanChoice === computerChoice) {
+            console.log("It's a tie! No points.");
+        } else if (
+            humanChoice === "rock" && computerChoice === "paper" ||
+            humanChoice === "scissors" && computerChoice === "rock" ||
+            humanChoice === "paper" && computerChoice === "scissors"
+        ) {
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else if (
+            humanChoice === "rock" && computerChoice === "scissors" ||
+            humanChoice === "paper" && computerChoice === "rock" ||
+            humanChoice === "scissors" && computerChoice === "paper"
+        ) {
+            console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } 
+        console.log(`Human ${humanScore} | Computer ${computerScore}`);
+    }
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound(humanChoice, computerChoice) {
-    if (!humanChoice) {
-        console.log("Computer wins by default.");
-        computerScore++;
-    } else if (humanChoice === computerChoice) {
-        console.log("It's a tie! No points.");
-    } else if (
-        humanChoice === "rock" && computerChoice === "paper" ||
-        humanChoice === "scissors" && computerChoice === "rock" ||
-        humanChoice === "paper" && computerChoice === "scissors"
-    ) {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
-        computerScore++;
-    } else if (
-        humanChoice === "rock" && computerChoice === "scissors" ||
-        humanChoice === "paper" && computerChoice === "rock" ||
-        humanChoice === "scissors" && computerChoice === "paper"
-    ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
-        humanScore++;
-    } 
-    console.log(`Human ${humanScore}; Computer ${computerScore}.`);
+    for (let i = 1; i <= 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+    }
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+playGame();
