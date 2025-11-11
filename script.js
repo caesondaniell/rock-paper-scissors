@@ -9,6 +9,7 @@ function getComputerChoice() {
     }
     else choice = "scissors";
     console.log(`Computer chooses ${choice}!`);
+    return choice;
 }
 
 function getRandomInt(num) {
@@ -17,14 +18,14 @@ function getRandomInt(num) {
 
 function getHumanChoice() {
     let pick = prompt("rock, paper, or scissors?");
-    if (!(pick === "rock" ||
-        pick === "paper" ||
-        pick === "scissors"
+    if (!(pick.toLowerCase() === "rock" ||
+        pick.toLowerCase() === "paper" ||
+        pick.toLowerCase() === "scissors"
     )) {
         console.log("You must enter 'paper' 'scissors' or 'rock'!");
         return 0
     } else {
-        console.log(`Player chooses ${pick}!`);
+        console.log(`Player chooses ${pick.toLowerCase()}!`);
         return pick.toLowerCase();
     }
 }
@@ -54,7 +55,7 @@ function playRound(humanChoice, computerChoice) {
     ) {
         console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
         humanScore++;
-    }
+    } 
     console.log(`Human ${humanScore}; Computer ${computerScore}.`);
 }
 
