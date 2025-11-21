@@ -22,7 +22,7 @@ function playGame(humanChoice, computerChoice) {
         humanChoice === "scissors" && computerChoice === "rock" ||
         humanChoice === "paper" && computerChoice === "scissors"
     ) {
-        gameText.textContent = `You chose ${humanChoice} and the computer chose ${computerChoice}. You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
+        gameText.textContent = `You chose ${humanChoice} and the computer chose ${computerChoice}. You lose the round! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
         computerScore++;
         cScore.textContent = computerScore;
     } else if (
@@ -30,18 +30,16 @@ function playGame(humanChoice, computerChoice) {
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper"
     ) {
-        gameText.textContent = `You chose ${humanChoice} and the computer chose ${computerChoice}. You win! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
+        gameText.textContent = `You chose ${humanChoice} and the computer chose ${computerChoice}. You win the round! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
         humanScore++;
         hScore.textContent = humanScore;
     }
     if (humanScore === 5 || computerScore === 5) {
         end.firstElementChild.textContent = humanScore > computerScore ?
-        `Game Over! Computer Score: ${computerScore} | Player Score: ${humanScore} You win! Congratulations!` :
-        `Game Over! Computer Score: ${computerScore} | Player Score: ${humanScore} You lose! Better luck next time.`;
+        `Game Over! You win the game! Congratulations!` :
+        `Game Over! You lose the game! Better luck next time.`;
         end.classList.toggle("hidden");
-        game.classList.toggle("hidden");
-        hScore.textContent = 0;
-        cScore.textContent = 0;
+        game.firstElementChild.classList.toggle("hidden");
     }
 }
 
@@ -56,24 +54,20 @@ let computerScore = 0;
 console.log(btns);
 btns.forEach((button) => {
     button.addEventListener("click", () => {
-        switch (button.textContent) {
-            case "START THE GAME":
-                top.classList.toggle("hidden");
-                game.classList.toggle("hidden");
-                break;
-            case "ROCK":
-                playGame(button.textContent.toLowerCase(), getComputerChoice());
-                break;
-            case "PAPER":
-                playGame(button.textContent.toLowerCase(), getComputerChoice());
-                break;
-            case "SCISSORS":
-                playGame(button.textContent.toLowerCase(), getComputerChoice());
-                break;
-            case "RESET":
-                top.classList.toggle("hidden");
-                end.classList.toggle("hidden");
-                break;
+        if (button.textContent === "START THE GAME") {
+            top.classList.toggle("hidden");
+            game.classList.toggle("hidden");
+        } else if (button.textContent === "RESET") {
+            top.classList.toggle("hidden");
+            end.classList.toggle("hidden");
+            game.firstElementChild.classList.toggle("hidden");
+            game.classList.toggle("hidden");
+            hScore.textContent = 0;
+            cScore.textContent = 0;
+            humanScore = 0;
+            computerScore = 0;
+        } else {
+            playGame(button.textContent.toLowerCase(), getComputerChoice());
         }
     })
 })
