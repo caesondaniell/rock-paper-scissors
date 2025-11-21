@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script type="module" src="script.js"></script>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock, Paper, Scissors</h1>
@@ -24,10 +20,16 @@
             <button>PAPER</button>
             <button>SCISSORS</button>
         </div>
+        <div>
+            <p>
+                Player choice: <span class="hPick">???</span> || 
+                Computer choice: <span class="cPick">???</span>
+            </p>
+            <p class="gameText"></p>
+        </div>
         <h2>Score</h2>
         <span>Player: <span class="hScore">0</span></span>
         <span>Computer: <span class="cScore">0</span></span>
-        <div></div>
     </div>
     <div class="endMessage hidden">
         <p></p>
