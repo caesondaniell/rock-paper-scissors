@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <script type="module" src="script.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Rock, Paper, Scissors</h1>
+    <div class="top">
+        <p>How about a friendly game of Rock, Paper, Scissors against the computer? Let's see who can score five points first.</p>
+        <button>START THE GAME</button>
+    </div>
+    <div class="gameContent hidden">
+        <h2>Choose wisely...</h2>
+        <button>ROCK</button>
+        <button>PAPER</button>
+        <button>SCISSORS</button>
+        <h3>Score</h3>
+        <span>Player: <span class="hScore">0</span></span>
+        <span>Computer: <span class="cScore">0</span></span>
+        <div></div>
+    </div>
+    <div class="endMessage hidden">
+        <p></p>
+        <button>RESET</button>
+    </div>
 </body>
 </html>
