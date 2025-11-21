@@ -24,6 +24,8 @@ btns.forEach((button) => {
             cScore.textContent = 0;
             humanScore = 0;
             computerScore = 0;
+            cPick.textContent = "???";
+            hPick.textContent = "???";
         } else {
             hPick.textContent = button.textContent;
             playGame(button.textContent.toLowerCase(), getComputerChoice());
@@ -69,8 +71,8 @@ function playGame(humanChoice, computerChoice) {
     }
     if (humanScore === 5 || computerScore === 5) {
         end.firstElementChild.textContent = humanScore > computerScore ?
-        `Game Over! You win the game! Congratulations!` :
-        `Game Over! You lose the game! Better luck next time.`;
+        `You win the game! Congratulations!` :
+        `You lose the game! Better luck next time.`;
         end.classList.toggle("hidden");
         game.firstElementChild.classList.toggle("hidden");
     }

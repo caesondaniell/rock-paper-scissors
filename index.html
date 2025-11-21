@@ -8,32 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <div class="top">
-        <p>How about a friendly game of Rock, Paper, Scissors against the computer? Let's see who can score five points first.</p>
-        <button>START THE GAME</button>
+    <div class="intro container">
+        <h1>Rock, Paper, Scissors</h1>
+        <div class="top">
+            <p>How about a friendly game of Rock, Paper, Scissors against the computer?<br>Let's see who can score five points first.</p>
+            <button class="start">START THE GAME</button>
+        </div>
     </div>
-    <div class="gameContent hidden">
+    <div class="gameContent container hidden">
         <div>
             <h2>Choose wisely...</h2>
-            <button>ROCK</button>
-            <button>PAPER</button>
-            <button>SCISSORS</button>
+            <button class="game rock">ROCK</button>
+            <button class="game paper">PAPER</button>
+            <button class="game scissors">SCISSORS</button>
         </div>
         <div>
             <p>
-                Player choice: <span class="hPick">???</span> || 
+                Player choice: <span class="hPick">???</span>
+                <br>
                 Computer choice: <span class="cPick">???</span>
             </p>
             <p class="gameText"></p>
         </div>
         <h2>Score</h2>
-        <span>Player: <span class="hScore">0</span></span>
-        <span>Computer: <span class="cScore">0</span></span>
+        <span class="scoreLabel">Player: <span class="hScore">0</span></span>
+        <span class="scoreLabel">Computer: <span class="cScore">0</span></span>
     </div>
-    <div class="endMessage hidden">
+    <div class="endMessage container hidden">
         <p></p>
-        <button>RESET</button>
+        <button class="reset">RESET</button>
     </div>
 </body>
 </html>

@@ -1,16 +1,62 @@
 html {
     box-sizing: border-box;
+    background-color: beige;
 }
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
+    text-align: center;
 }
 
 .hidden {
     display: none;
+}
+
+.container {
+    max-width: 90vw;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+button {
+    padding: 8px 15px;
+    font-weight: bold;
+    border: 2px solid brown;
+    border-radius: 5px;
+    margin: 10px 30px;
+}
+
+button.game {
+    border-radius: 50px;
+}
+
+.rock {
+    background-color: tan;
+}
+
+.paper {
+    background-color: white;
+}
+
+.scissors {
+    background-color: silver;
+}
+
+.hPick,
+.cPick,
+.hScore,
+.cScore {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.2em;
+}
+
+.scoreLabel {
+    display: inline-block;
+    margin: 0 30px;
 }
